@@ -1,4 +1,4 @@
-say= require 'say'
+say = require 'say'
 
 class Speaker
   
@@ -18,11 +18,11 @@ class Speaker
 
 
 
-  say: (voice,string,ms=3000) ->
+  talk: (string,ms=3000) ->
     d = new Date()
     d2 = null 
     d2 = new Date() while d2-d < ms
-    say.speak(string,voice)
+    say.speak(string,@voice)
 
 
 

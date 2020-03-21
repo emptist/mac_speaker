@@ -1,0 +1,29 @@
+{
+  "name": "mac_speaker",
+  "version": "1.0.0",
+  "description": "spearkers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emptist/mac_speaker.git"
+  },
+  "keywords": [
+    "mac",
+    "speakers"
+  ],
+  "author": "emptist",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emptist/mac_speaker/issues"
+  },
+  "homepage": "https://github.com/emptist/mac_speaker#readme",
+  "dependencies": {
+    "say": "^0.16.0"
+  },
+  "devDependencies": {
+    "coffeescript": "^1.12.7"
+  }
+}

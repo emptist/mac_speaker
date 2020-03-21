@@ -8,7 +8,8 @@ class Speaker
   @Oliver: new Speaker 'Oliver'
   @Samantha: new Speaker 'Samantha'
   @Serena: new Speaker 'Serena'
-
+  @MeiJia: new Speaker 'Mei-Jia'
+  @Sinji: new Speaker 'Sin-ji'
 
 
 
@@ -18,11 +19,19 @@ class Speaker
 
 
 
-  talk: (string,ms=3000) ->
+  say: (string, s) ->
+    @quiet(s)
+    if string?
+      say.speak(string,@voice)
+
+
+
+
+  quiet: (s=1) ->
+    ms = s * 1000
     d = new Date()
     d2 = null 
     d2 = new Date() while d2-d < ms
-    say.speak(string,@voice)
 
 
 

@@ -25,24 +25,36 @@ class Speaker
     @say "I'm #{@voice}, I #{action}"
 
 
+
+
   say: (string,s) ->
     if string?
       say.speak(string,@voice)
       ms = if s? then s*1000 else string.length*@delay
-      @wait(ms)
+      @_wait(ms)
 
 
 
 
   quiet: (s=4) ->
-    @wait(s*1000)
+    @_wait(s*1000)
 
 
 
-  wait:(ms=40000) ->
+  _wait:(ms=40000) ->
     d = new Date()
     d2 = null 
     d2 = new Date() while d2-d < ms
+
+
+
+  stop: ->
+    @say.stop()
+
+
+
+
+
 
 
 

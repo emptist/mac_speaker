@@ -2,33 +2,44 @@ say = require 'say'
 
 class Speaker
   
-  @Alex: new Speaker 'Alex'
-  @Daniel: new Speaker 'Daniel'
-  @Kate: new Speaker 'Kate'
-  @Oliver: new Speaker 'Oliver'
-  @Samantha: new Speaker 'Samantha'
-  @Serena: new Speaker 'Serena'
-  @MeiJia: new Speaker 'Mei-Jia'
-  @Sinji: new Speaker 'Sin-ji'
+  @Alex: new Speaker {voice:'Alex',role:'student',speed:0.8}
+  @Daniel: new Speaker {voice:'Daniel',role:'teacher'}
+  @Kate: new Speaker {voice:'Kate',role:'teacher',speed:0.9}
+  @Oliver: new Speaker {voice:'Oliver',role:'student',speed:0.8}
+  @Samantha: new Speaker {voice:'Samantha',role:'student',speed:0.9}
+  @Serena: new Speaker {voice:'Serena',role:'teacher'}
+  @MeiJia: new Speaker {voice:'Mei-Jia',role:'student',delay:110}
+  @Sinji: new Speaker {voice:'Sin-ji',role:'student',delay:110,speed:0.8}
 
 
 
-  constructor: (@voice) -> 
-    @delay = 2000
+  constructor: (classOpts={}) -> 
+    {@voice,@role,@speed=1,@delay=100} = classOpts
+    
 
 
 
+  intro: ->
+    @quiet(1)
+    action = if @role is 'teacher' then "teach English." else "want to learn English"
+    @say "I'm #{@voice}, I #{action}"
 
-  say: (string, s) ->
-    @quiet(s)
+
+  say: (string,s) ->
     if string?
       say.speak(string,@voice)
+      ms = if s? then s*1000 else string.length*@delay
+      @wait(ms)
 
 
 
 
-  quiet: (s=1) ->
-    ms = s * 1000
+  quiet: (s=4) ->
+    @wait(s*1000)
+
+
+
+  wait:(ms=40000) ->
     d = new Date()
     d2 = null 
     d2 = new Date() while d2-d < ms

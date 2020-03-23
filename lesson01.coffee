@@ -1,9 +1,13 @@
 module.exports = {
-  title: "A Private Conversation"
 
-  paragraph: "Last week I went to the theatre. I had a very good seat. The play was very interesting. I did not enjoy it. A young man and a young woman were sitting behind me. They were talking loudly. I got very angry. I could not hear the actors. I turned around. I looked at the man and the woman angrily. They did not pay any attention. In the end, I could not bear it. I turned round again. ‘I can’t hear a word!’ I said angrily. ‘It’s none of your business,’ the young man said rudely. ‘This is a private conversation!’"
+  text: {
+    title: "A Private Conversation"
+    paragraph: "Last week I went to the theatre. I had a very good seat. The play was very interesting. I did not enjoy it. A young man and a young woman were sitting behind me. They were talking loudly. I got very angry. I could not hear the actors. I turned around. I looked at the man and the woman angrily. They did not pay any attention. In the end, I could not bear it. I turned round again. ‘I can’t hear a word!’ I said angrily. ‘It’s none of your business,’ the young man said rudely. ‘This is a private conversation!’"
+  }
+
 
   comprehension: {
+    introduction:""
     asks: [
       "Where did the writer go last week?"
       "Did he have a very good seat, or not?"
@@ -50,4 +54,24 @@ module.exports = {
     ]
 
   }
+
+  oralComposition: {
+    ocIntroduction:"Now let's try oral composition. I want you to try and tell me the story from those notes."
+    oct1: [
+      "Last week  - went - theatre"
+      "Did not enjoy - play"
+      "young man - woman -behind me"
+      "talking loudly"
+      "I turned - and looked - angrily"
+    ]
+    ocs1: [
+      "Last week I went to the theatre." 
+      "I did not enjoy the play."
+      "A young man and a young woman were sitting behind me."
+      "They were talking loudly."
+      "I turned round again and looked at them angrily."
+    ]
+  }
+
+
 }

@@ -20,23 +20,16 @@ students = [
   Oliver
 ]
 
-oralCompositionpoints = [
-  "Last week  - went - theatre"
-  "Did not enjoy - play"
-  "young man - woman -behind me"
-  "talking loudly"
-  "I turned - and looked - angrily"
-]
 
 teachers.map((each,idx) -> each.role = 'teacher')
 students.map((each,idx) -> each.role = 'student')
 
 # --------------------------- prepare for materials --------------------------
 {
-  title,paragraph,
-  comprehension:{asks,answers}
-  patternDrills:{t1, t2, s1, s2}
-  oralComposition
+  text: {title,paragraph}
+  comprehension: {asks,answers}
+  patternDrills: {t1, t2, s1, s2}
+  oralComposition: {ocIntroduction,oct1, ocs1}
 } = lesson01
 
 ###
@@ -168,7 +161,6 @@ students[4].say "What did you see?"
 teachers[1].say "I saw an interesting play. Very good!"
 teachers[1].quiet()
 
-###
 # ------------  train the students on pattern dills --------------------
 
 
@@ -204,8 +196,8 @@ teachers[0].say "Good. "
 
 teachers[0].say "Now look at the blackboard please. I want you to try and tell me the story from those notes. Would you begin please, #{students[4].voice}? You should reconstruct points 1 and 2. "
 
-teachers[0].say "points 1, #{oralCompositionpoints[0]}"
-teachers[0].say "points 2, #{oralCompositionpoints[1]}"
+teachers[0].say "points 1, #{oct1[0]}"
+teachers[0].say "points 2, #{oct1[1]}"
 teachers[0].quiet()
 
 students[4].say "Last week I went to the theatre. I did not enjoy the play."
@@ -213,12 +205,13 @@ students[4].say "Last week I went to the theatre. I did not enjoy the play."
 teachers[0].say "Good, now continue points 3 and 4, #{students[2].voice} please."
 teachers[0].quiet()
 teachers[0].quiet()
-teachers[0].say "points 3, #{oralCompositionpoints[2]}"
+teachers[0].say "points 3, #{oct1[2]}"
 teachers[0].quiet()
-teachers[0].say "points 4, #{oralCompositionpoints[3]}"
+teachers[0].say "points 4, #{oct1[3]}"
 teachers[0].quiet()
 students[2].say "A young man and a young woman were sitting behind me. They were talking loudly."
 
+###
 
 
 
@@ -248,17 +241,28 @@ for ask,idx in asks
 
 
 
-
+# pattern drills
 for t,idx in t1
   teachers[1].say t
   teachers[1].quiet(2)
 
-  students[1].say s1[idx]
+  students[0].say s1[idx]
   teachers[2].say t2[idx]
   
   teachers[1].quiet(2)
-  students[2].say s2[idx]
+  students[0].say s2[idx]
 ###
+
+
+# oral composition
+teachers[1].say ocIntroduction
+
+for t,idx in oct1
+  teachers[1].say t
+  teachers[1].quiet(2)
+  students[1].say ocs1[idx]
+
+##
 
 
 teachers[0].say "That's all for today"

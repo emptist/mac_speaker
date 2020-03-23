@@ -1,55 +1,68 @@
 say = require 'say'
+# see https://javascript.info/settimeout-setinterval
 
 class Speaker
-  
-  @Alex: new Speaker {voice:'Alex',role:'student',speed:0.8}
+
+  @ms: 1500
+
+  @Alex: new Speaker {voice:'Alex',role:'student',speed:0.9}
   @Daniel: new Speaker {voice:'Daniel',role:'teacher'}
-  @Kate: new Speaker {voice:'Kate',role:'teacher',speed:0.9}
-  @Oliver: new Speaker {voice:'Oliver',role:'student',speed:0.8}
+  @Kate: new Speaker {voice:'Kate',role:'teacher'}
+  @Oliver: new Speaker {voice:'Oliver',role:'student',speed:0.9}
   @Samantha: new Speaker {voice:'Samantha',role:'student',speed:0.9}
   @Serena: new Speaker {voice:'Serena',role:'teacher'}
-  @MeiJia: new Speaker {voice:'Mei-Jia',role:'student',delay:110}
-  @Sinji: new Speaker {voice:'Sin-ji',role:'student',delay:110,speed:0.8}
+  @MeiJia: new Speaker {voice:'Mei-Jia',role:'student',delay:500,speed:0.9}
+  @Sinji: new Speaker {voice:'Sin-ji',role:'student',delay:500,speed:0.9}
+
+  @wait: (ms) ->
+    @ms += ms
 
 
 
-  constructor: (classOpts={}) -> 
-    {@voice,@role,@speed=1,@delay=100} = classOpts
+
+
+  constructor: (classOpts={}) ->
+    {@voice,@role,@speed=1,@delay=350} = classOpts  # delay=400
     
 
 
 
   intro: ->
-    @quiet(1)
     action = if @role is 'teacher' then "teach English." else "want to learn English"
     @say "I'm #{@voice}, I #{action}"
 
 
 
-
   say: (string,s) ->
     if string?
-      say.speak(string,@voice)
-      ms = if s? then s*1000 else string.length*@delay
-      @_wait(ms)
+      {ms} = @constructor
+      setTimeout(@speak, ms, string, @voice, @speed)
+      console.log({@voice,ms,string})
+      minDelay = 2000
+      ms = if s? then s*1000 else Math.max(minDelay, string.split(' ').length*@delay)
+      @constructor.wait(ms)
+
+
+  speak: (string,voice,speed) ->
+    say.speak(string,voice,speed)
 
 
 
+  quiet: (s=1) ->
+    ms = 1000 * s
+    @constructor.wait(ms)
+    
 
-  quiet: (s=4) ->
-    @_wait(s*1000)
-
-
-
-  _wait:(ms=40000) ->
-    d = new Date()
-    d2 = null 
-    d2 = new Date() while d2-d < ms
 
 
 
   stop: ->
     @say.stop()
+
+
+
+
+
 
 
 

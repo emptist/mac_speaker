@@ -23,6 +23,7 @@ module.exports = {
   }
   
   patternDrills: {
+    introduction: ""
     t1:[
       "walk across the stage..."
       "behave at the theatre..."

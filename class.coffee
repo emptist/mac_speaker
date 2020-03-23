@@ -36,6 +36,7 @@ students.map((each,idx) -> each.role = 'student')
   title,paragraph,
   comprehension:{asks,answers}
   patternDrills:{t1, t2, s1, s2}
+  oralComposition
 } = lesson01
 
 ###
@@ -245,17 +246,19 @@ for ask,idx in asks
 #students[1].say '根據老師出的pattern,兩個學生互相問答'
 #students[1].quiet(2)
 
-###
 
 
 
 for t,idx in t1
   teachers[1].say t
-  teachers[0].quiet(2)
+  teachers[1].quiet(2)
+
   students[1].say s1[idx]
-  teachers[0].say t2[idx]
+  teachers[2].say t2[idx]
+  
   teachers[1].quiet(2)
   students[2].say s2[idx]
+###
 
 
 teachers[0].say "That's all for today"

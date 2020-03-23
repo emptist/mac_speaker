@@ -8,7 +8,6 @@ lesson01 = require './lesson01'
   patternDrills:{t1, t2, s1, s2}
 } = lesson01
 
-###
 Sinji.quiet(1)
 MeiJia.say "Why your English is so good? What's the secret?"
 #MeiJia.quiet()
@@ -30,12 +29,12 @@ Sinji.say "Let's meet some people first."
 #Sinji.quiet()
 
 Daniel.intro()
+Daniel.quiet(1)
 Sinji.intro()
 MeiJia.intro()
 Serena.intro()
 Oliver.intro()
 Alex.intro()
-###
 
 Serena.say "Today I'm going to read you a story about a visit to the theatre. It's called 'A Private Conversation'. Keep your books shut and listen please. "
 Serena.say "A Private Conversation"
@@ -89,7 +88,6 @@ for t,idx in t1
 
 
 Daniel.say "That's all for today"
-Daniel.quiet(1)
 
 for each in [Serena,Daniel,Kate,Serena,Samantha,MeiJia,Sinji]
   each.say "bye bye",0.001

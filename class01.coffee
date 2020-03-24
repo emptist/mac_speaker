@@ -3,26 +3,6 @@ lesson01 = require './lesson01'
 
 Speaker.restart()
 
-# ---------------------- set up roles and voices ---------------------------
-{Alex,Daniel,Kate,Oliver,Samantha,Serena,MeiJia,Sinji} = Speaker
-
-T = [
-  Daniel
-  Kate
-  Serena
-]
-
-S = [
-  MeiJia 
-  Sinji 
-  Samantha
-  Alex
-  Oliver
-]
-
-
-T.map((each,idx) -> each.role = 'trainer')
-S.map((each,idx) -> each.role = 'trainee')
 
 # --------------------------- prepare for materials --------------------------
 {
@@ -38,8 +18,41 @@ S.map((each,idx) -> each.role = 'trainee')
   OC
 } = lesson01
 
-###
-S[1].say "Let's meet some people first."
+
+
+
+
+# ---------------------- set up roles and voices ---------------------------
+{Alex,Daniel,Kate,Oliver,Samantha,Serena,MeiJia,Sinji} = Speaker
+
+T = [
+  Daniel
+  Serena
+  Kate
+]
+
+S = [
+  MeiJia 
+  Alex
+  #Sinji 
+  #Samantha
+  #Oliver
+]
+
+
+T.map((each,idx) -> each.role = 'trainer')
+S.map((each,idx) -> each.role = 'trainee')
+
+
+
+
+
+
+
+# --------------------------- process the contents ----------------------------
+
+S[0].say "自從這樣學新概念,媽媽再也不用擔心我的英語啦"
+Speaker.quiet(4)
 
 T[0].intro()
 T[1].intro()
@@ -47,12 +60,14 @@ T[2].intro()
 Speaker.quiet(1)
 S[1].intro()
 S[0].intro()
+
+###
 S[2].intro()
 S[3].intro()
 S[4].intro()
+###
 
-###
-###
+##
 # Read for the first time
 T[1].say RD1.introduction
 T[2].say title
@@ -82,17 +97,17 @@ for t, idx in AQT.teacher
   S[0].say AQT.student[idx]
 
 
-###
+
 
 # Pattern Drills 1
 T[1].say PDs1.introduction
-T[0].say PDs1.example.teacher1
-T[2].say PDs1.example.teacher2
-T[0].say PDs1.example.teacher1
-T[2].say PDs1.example.teahcer2
 
-
-
+for t,idx in PDs1.example.teacher1
+  T[0].say t
+  T[2].say PDs1.example.teacher2[idx]
+  
+Speaker.quiet(2)
+T[2].say "Let's begin"
 for t,idx in PDs1.teacher1
   T[2].say t
   Speaker.quiet(2)
@@ -108,7 +123,8 @@ T[0].say PDs2.example.teacher1
 T[1].say PDs2.example.teacher2
 T[2].say PDs2.example.teacher3
 
-
+Speaker.quiet(2)
+T[2].say "Let's begin"
 for t,idx in PDs2.teacher
   T[2].say t
   Speaker.quiet(2)
@@ -121,24 +137,30 @@ T[1].say PDs3.introduction
 T[0].say PDs3.example.teacher1
 T[2].say PDs3.example.teacher2
 
-
+Speaker.quiet(2)
+T[2].say "Let's begin"
 for t,idx in PDs3.teacher
   T[2].say t
   Speaker.quiet(2)
   S[0].say PDs3.student[idx]
-
+##
   
 # Pattern Drills 4
 T[1].say PDs4.introduction
-T[0].say PDs4.example.teacher0
-T[1].say PDs4.example.teacher1
-T[2].say PDs4.example.teacher2
+
+for t,idx in PDs4.example.teacher1
+  T[0].say t
+  T[1].say PDs4.example.teacher2[idx]
 
 
-for t,idx in PDs4.teacher
+Speaker.quiet(2)
+T[2].say "Let's begin"
+
+for t,idx in PDs4.teacher1
   T[2].say t
   Speaker.quiet(2)
   S[0].say PDs4.student1[idx]
+  T[1].say PDs4.teacher2[idx]
   Speaker.quiet(2)
   S[1].say PDs4.student2[idx]  
 
@@ -158,3 +180,5 @@ T[2].say "That's all for today"
 for each in T.concat(S)
   each.say "bye bye",0.001
 
+
+#Speaker.end()

@@ -119,10 +119,14 @@ module.exports = {
     introduction: "Pattern Drills 1. Now we're going to practice making simple sentences. We'll practice in pairs. Ask questions and then answer them following the example."
     
     example:{
-      teacher1: "walk across the stage"
-      teacher2: 'How did she walk across the stage?' 
-      teacher1: 'slow'
-      teacher2: "She walked very slowly across the stage."
+      teacher1: [
+        "walk across the stage"
+        'slow'
+      ]
+      teacher2: [
+        'How did she walk across the stage?' 
+        "She walked very slowly across the stage."
+      ]
     }
 
     teacher1:[
@@ -168,6 +172,7 @@ module.exports = {
     }
 
     teacher:[
+      "hear the radio"
       "hear the actors"
       "see her house"
       "hear the rain" 
@@ -175,6 +180,7 @@ module.exports = {
     ]
 
     student1:[
+      "I can hear the radio now. Can you?"
       "I can hear the actors. Can you?"
       "I can see the house. Can you?"
       "I can hear the rain. Can you?"
@@ -182,10 +188,11 @@ module.exports = {
     ]
 
     student2:[
+      "Of course, I can. I can hear it perfectly well."
       "Of course, I can. I can hear the actors perfectly well. "
       "Of course, I can. I can see the house perfectly well. "
       "Of course, I can. I can hear the rain perfectly well. "
-      "Of course, I can. I can see the policeman perfectly well. "
+      "Of course, I can. I can see the policeman perfectly well."
     ]
    
   }
@@ -194,10 +201,11 @@ module.exports = {
     introduction: "Pattern Drills 3. Put in saw or heard."
     example: {
       teacher1:"Last night, a good talk on the radio."
-      teacher2:"I heard a good talk on the radio."
+      teacher2:"I heard a good talk on the radio last night."
     }
 
     teacher:[
+      "Last night, a good talk on the radio."
       "just now, a knock at the door "
       "at lunch, a hair in my soup"
       "last night, a cry outside"
@@ -205,6 +213,7 @@ module.exports = {
     ]
 
     student:[
+      "I heard a good talk on the radio last night."
       "I heard a knock at the door just now."
       "I saw a hair in my soup at lunch."
       "I heard a cry outside last night."
@@ -216,19 +225,34 @@ module.exports = {
   PDs4: {
     introduction: "Pattern Drills 4. Ask a question on a given topic and then answer it following the example:"
     example: {
-      teacher0:"see the race - large crowd"
-      teacher1:"Didn't you see the race?"
-      teacher2:"I couldn't. The crowd was too large."
+      teacher1:[
+        "see the race..."
+        "large crowd"
+      ]
+      teacher2:[
+        "Didn't you see the race?"
+        "I couldn't. The crowd was too large."
+      ]
     }
 
-    teacher:[
-      "read the letter - bad writing "
-      "swim in the lake - deep water"
-      "see her face - poor light"
-      "finish your lunch - hot food"
+    teacher1:[
+      "see the race..."
+      "read the letter..."
+      "swim in the lake..."
+      "see her face..."
+      "finish your lunch..."
+    ]
+
+    teacher2:[
+      "large crowd"
+      "bad writing "
+      "deep water"
+      "poor light"
+      "hot food"
     ]
 
     student1:[
+      "Didn't you see the race?"
       "Didn't you read the letter?"
       "Didn't you swim in the lake?"
       "Didn't you see her face?"
@@ -236,6 +260,7 @@ module.exports = {
     ]
 
     student2:[
+      "I couldn't. The crowd was too large."
       "I couldn't. The writing was too bad."
       "I couldn't. The water was too deep"
       "I couldn't. The light was too poor."
@@ -264,8 +289,8 @@ module.exports = {
       "A young man and a young woman were sitting behind me."
       "They were talking loudly."
       "I turned round again and looked at them angrily."
-      "I did not pay any attention."
-      "In the end, i could not bear it"
+      "They did not pay any attention."
+      "In the end, I could not bear it"
       " 'I can not hear a word', I said angrily."
       " 'It is none of your business', the young man said rudely, 'it is a private conversation'. "
     ]

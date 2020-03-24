@@ -6,18 +6,30 @@ say = require 'say'
 class SpeakerBase
   @all = []
   @ms: 1500
+  @indx: 1 
 
   @quiet: (s=1) ->
     ms = 1000 * s
     @wait(ms)
 
-  @wait: (ms) ->
-    @ms += ms
+
+  @wait: (ms,sentence=false) ->
+    if sentence
+      @indx += 1
+    @ms += ms # return @ms
+
+
+
 
   @restart: ->
-    #[@Alex,@Daniel,@Kate,@Oliver,@Samantha,@Serena,@MeiJia,@Sinji].map((each,idx)->each.stop())
+    @end()
+
+
+
+  @end: ->
     clearTimeout(any) for any in @all
     @all = []
+    @indx = 1
     @ms = 1500
 
 
@@ -33,10 +45,8 @@ class SpeakerBase
 
   say: (string,s) ->
     if string?
-      {ms} = @constructor
+      {ms,indx} = @constructor
       @constructor.all.push(setTimeout(@speak, ms, string, @voice, @speed))
-      #console.log("#{Math.round((ms/1000))}: #{@voice}: #{string}")
-      console.log("#{@voice}: #{string}")
 
       minDelay = 1600
       moreMs = if s? 
@@ -44,8 +54,28 @@ class SpeakerBase
       else 
         Math.max(minDelay, string.split(' ').length*@delay)
       
-      @constructor.wait(moreMs)
+      endMs = @constructor.wait(moreMs,true)
+      @cc({indx,start:ms,end:endMs,who:@voice,string})
 
+
+
+
+
+
+  cc: ({indx,start,end,who,string,type='srt'}) ->
+    seperator = ''
+    switch type
+      # SupRip, .srt
+      when 'srt'
+        seperator = ' --> '
+        console.log(indx)
+      # SubViewer, .sbv  
+      when 'sbv' 
+        seperator = ','
+  
+    console.log("#{start}#{seperator}#{end}")
+    console.log("#{who}: #{string}")
+    console.log("")
 
 
 
@@ -82,11 +112,6 @@ class Speaker extends SpeakerBase
   @restart: ->
     [@Alex,@Daniel,@Kate,@Oliver,@Samantha,@Serena,@MeiJia,@Sinji].map((each,idx)->each.stop())
     super()
-    ###
-    clearTimeout(any) for any in @all
-    @all = []
-    @ms = 1500
-    ###
 
 
 

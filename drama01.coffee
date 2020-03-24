@@ -58,7 +58,13 @@ T[2].intro()
 S[4].intro()
 
 
-T[1].say "Hello everyone,  #{T[0].voice} and I will help you to learn New Concept English through practice. Today I'm going to read you a story about a visit to the theatre. It's called #{title}. Keep your books shut and listen please. "
+T[1].say "Hello everyone,  #{T[0].voice} and I will help you to learn New Concept English through practice."
+T[1].quiet()
+
+T[2].say "Part 1: Audio- lingual presentation of the text"
+T[2].quiet()
+
+T[1].say "Now I'm going to read you a story about a visit to the theatre. It's called #{title}. Keep your books shut and listen please. "
 
 T[1].say title
 
@@ -102,9 +108,10 @@ S.map (each,idx) ->
 
 
 # --------------------------- T ask S questions -------------------------
+T[2].say "Part 2: Comprehension questions"
+T[2].quiet()
 
-
-T[1].say "Great! Now I'm going to read the story again. Then, we're going to ask you questions. Books shut and listen carefully. "
+T[1].say "Now I'm going to read the story again. Then, we're going to ask you questions. Books shut and listen carefully. "
 T[1].quiet()
 
 T[1].say title
@@ -130,15 +137,18 @@ T[1].say "So #{S[4].voice}, you enjoyed it, did you? "
 
 S[4].say "Yes, I did. "
 
-T[1].say "I mean 'did you' ? "
+T[1].say "Please listen again. So you enjoyed it, did you?"
 
 S[4].say "No, I didn't. "
 
-
+T[1].say "Excellent! You are all doing very well! 
+T[1].quiet()
 # ------------  train the S on asking questions --------------------
 
+T[2].say "Part 3: Asking questions on the text"
+T[2].quiet()
 
-T[1].say "Excellent! You are all doing very well! Now I want you to ask me some questions. Here is the rule. I'm going to say 'Ask me if I went to the theatre' and you will ask, 'Did you go to the theatre?'. Then I will say 'Yes, I did. When...' and you will ask,'when did you go to the theatre?'"
+T[1].say "Now I want you to ask me some questions. Here is the rule. I'm going to say 'Ask me if I went to the theatre' and you will ask, 'Did you go to the theatre?'. Then I will say 'Yes, I did. When...' and you will ask,'when did you go to the theatre?'"
 
 T[1].say "Ready? Ask me if I went to the theatre. #{S[0].voice}, you please."
 
@@ -164,9 +174,10 @@ T[1].say "I saw an interesting play. Very good!"
 T[1].quiet()
 
 # ------------  train the S on pattern dills --------------------
+T[2].say "Part 4: pattern drills"
+T[2].quiet()
 
-
-T[0].say "Now we're going to practice making simple sentences. We'll practice in pairs. One of you CQs.teacher a question or make a statement and the other CQs.student. I shall give you cues, like this : #{S[0].voice}, 'walk across the stage.' Then #{S[0].voice} ask: 'How did she walk across the stage?'"
+T[0].say "Now we're going to practice making simple sentences. We'll practice in pairs. One of you asks a question or make a statement and the other answers. I shall give you cues, like this : #{S[0].voice}, 'walk across the stage.' Then #{S[0].voice} ask: 'How did she walk across the stage?'"
 
 T[0].say "Then I shall give another cue: #{S[1].voice}, 'slow', and #{S[1].voice} say, 'She walked very slowly across the stage'. All right?"
 
@@ -192,11 +203,13 @@ T[0].say "#{S[3].voice}, rude ."
 S[3].say "She behaved very rudely at the theatre."
 
 T[0].say "Good. "
-
+T[0].quiet()
 
 # ------------  train the S on oral composition --------------------
+T[2].say "Part 5: oral composition"
+T[2].quiet()
 
-T[0].say "Now look at the blackboard please. I want you to try and tell me the story from those notes. Would you begin please, #{S[4].voice}? You should reconstruct points 1 and 2. "
+T[0].say "Congratulations! Here is the last part. Now look at the blackboard please. I want you to try and tell me the story from those notes. Would you begin please, #{S[4].voice}? You should reconstruct points 1 and 2. "
 
 T[0].say "points 1, #{OC.teacher[0]}"
 T[0].say "points 2, #{OC.teacher[1]}"
@@ -216,7 +229,7 @@ S[2].say "A young man and a young woman were sitting behind me. They were talkin
 
 
 
-T[0].say "That's all for today"
+T[0].say "That's all for today. Trust me, if you stick to learning New Concept English in this efficient way, your comprehensive English skills  will definitely get improved. Thank you!"
 
 for each in T.concat(S)
   each.say "bye bye",0.001

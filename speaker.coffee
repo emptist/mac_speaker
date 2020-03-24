@@ -1,25 +1,17 @@
 say = require 'say'
 # see https://javascript.info/settimeout-setinterval
 
-class Speaker
 
+
+class SpeakerBase
   @all = []
   @ms: 1500
-
-  @Alex: new Speaker {voice:'Alex',role:'student',speed:0.95}
-  @Daniel: new Speaker {voice:'Daniel',role:'teacher'}
-  @Kate: new Speaker {voice:'Kate',role:'teacher'}
-  @Oliver: new Speaker {voice:'Oliver',role:'student',speed:0.95}
-  @Samantha: new Speaker {voice:'Samantha',role:'student',speed:0.95}
-  @Serena: new Speaker {voice:'Serena',role:'teacher'}
-  @MeiJia: new Speaker {voice:'Mei-Jia',role:'student',delay:500}
-  @Sinji: new Speaker {voice:'Sin-ji',role:'student',delay:500}
 
   @wait: (ms) ->
     @ms += ms
 
   @restart: ->
-    [@Alex,@Daniel,@Kate,@Oliver,@Samantha,@Serena,@MeiJia,@Sinji].map((each,idx)->each.stop())
+    #[@Alex,@Daniel,@Kate,@Oliver,@Samantha,@Serena,@MeiJia,@Sinji].map((each,idx)->each.stop())
     clearTimeout(any) for any in @all
     @all = []
     @ms = 1500
@@ -33,13 +25,6 @@ class Speaker
   constructor: (classOpts={}) ->
     {@voice,@role,@speed=1,@delay=370} = classOpts  # delay=400
     
-
-
-
-  intro: ->
-    action = if /teacher/i.test(@role) then "teach English." else " am learning English"
-    @say "I'm #{@voice}, I #{action}"
-
 
 
   say: (string,s) ->
@@ -58,6 +43,9 @@ class Speaker
       @constructor.wait(moreMs)
 
 
+
+
+
   speak: (string,voice,speed) ->
     say.speak(string,voice,speed)
 
@@ -74,6 +62,42 @@ class Speaker
   stop: ->
     say.stop()
 
+
+
+
+
+
+
+class Speaker extends SpeakerBase
+
+  @Alex: new Speaker {voice:'Alex',role:'trainee',speed:0.95}
+  @Daniel: new Speaker {voice:'Daniel',role:'trainer'}
+  @Kate: new Speaker {voice:'Kate',role:'trainer'}
+  @Oliver: new Speaker {voice:'Oliver',role:'trainee',speed:0.95}
+  @Samantha: new Speaker {voice:'Samantha',role:'trainee',speed:0.95}
+  @Serena: new Speaker {voice:'Serena',role:'trainer'}
+  @MeiJia: new Speaker {voice:'Mei-Jia',role:'trainee',delay:500}
+  @Sinji: new Speaker {voice:'Sin-ji',role:'trainee',delay:500}
+
+
+
+
+  @restart: ->
+    [@Alex,@Daniel,@Kate,@Oliver,@Samantha,@Serena,@MeiJia,@Sinji].map((each,idx)->each.stop())
+    super()
+    ###
+    clearTimeout(any) for any in @all
+    @all = []
+    @ms = 1500
+    ###
+
+
+
+
+
+  intro: ->
+    action = if /trainer/i.test(@role) then "teach English." else " am learning English"
+    @say "I'm #{@voice}, I #{action}"
 
 
 

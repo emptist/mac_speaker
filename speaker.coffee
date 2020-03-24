@@ -7,6 +7,10 @@ class SpeakerBase
   @all = []
   @ms: 1500
 
+  @quiet: (s=1) ->
+    ms = 1000 * s
+    @wait(ms)
+
   @wait: (ms) ->
     @ms += ms
 
@@ -48,13 +52,6 @@ class SpeakerBase
 
   speak: (string,voice,speed) ->
     say.speak(string,voice,speed)
-
-
-
-  quiet: (s=1) ->
-    ms = 1000 * s
-    @constructor.wait(ms)
-    
 
 
 

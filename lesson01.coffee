@@ -7,7 +7,7 @@ module.exports = {
   
   # Read for the first time
   RD1: {
-    introduction:"Now I'm going to read you a story about a visit to the theatre. It's called #{title}. Keep your books shut and listen please."
+    introduction:"Now I'm going to read you a story about a visit to the theatre. It's called 'A Private Conversation'. Keep your books shut and listen please."
   }
 
   # Read for the 2nd time
@@ -17,7 +17,7 @@ module.exports = {
 
   # Comprehension Questions
   CQs: {
-    introduction:"Now, let's do a role play. I'm going to ask you some questions about the story and you are going to answer my questions as if you were the hero of the story."
+    introduction:"Comprehension Questions. Now, let's do a role play. I'm going to ask you some questions about the story and you are going to answer my questions as if you were the hero of the story."
     teacher: [
       "where did you go last week? "
       "Did you have a good seat?"
@@ -61,7 +61,8 @@ module.exports = {
   
   # Ask Questions on the Text
   AQT: {
-    introduction: "Now, try to ask questions on the text. Here is an example:"
+    introduction: "Ask Questions on the Text. Now, try to ask questions on the text. Here is an example:"
+
     example: {
       teacher1: [
         "Ask me if I went to the theatre"
@@ -97,7 +98,7 @@ module.exports = {
       "Did you have a good seat?"
       "What kind of the seat did you have?"
       "Did you see an interesting play?"
-      "What was the play?"
+      "What did you see?"
       "Were a young man and a young woman sitting behind you?"
       "Who were sitting behind you?"
       "Where were a young man and a young woman sitting?"
@@ -119,9 +120,9 @@ module.exports = {
     
     example:{
       teacher1: "walk across the stage"
-      student1: 'How did she walk across the stage?' 
-      teacher2: 'slow'
-      student2: "She walked very slowly across the stage."
+      teacher2: 'How did she walk across the stage?' 
+      teacher1: 'slow'
+      teacher2: "She walked very slowly across the stage."
     }
 
     teacher1:[
@@ -161,12 +162,12 @@ module.exports = {
   PDs2: {
     introduction: "Pattern Drills 2. Ask a question on a given topic and then answer it following the example:"
     example: {
-      teacher:"hear the radio"
-      student1:"I can hear the radio now. Can you?"
-      student2:"Of course, I can. I can hear it perfectly well."
+      teacher1:"hear the radio"
+      teacher2:"I can hear the radio now. Can you?"
+      teacher3:"Of course, I can. I can hear it perfectly well."
     }
 
-    teacher1:[
+    teacher:[
       "hear the actors"
       "see her house"
       "hear the rain" 
@@ -193,17 +194,17 @@ module.exports = {
     introduction: "Pattern Drills 3. Put in saw or heard."
     example: {
       teacher1:"Last night, a good talk on the radio."
-      student1:"I heard a good talk on the radio."
+      teacher2:"I heard a good talk on the radio."
     }
 
-    teacher1:[
+    teacher:[
       "just now, a knock at the door "
       "at lunch, a hair in my soup"
       "last night, a cry outside"
       "last week, a monkey at the zoo"
     ]
 
-    student1:[
+    student:[
       "I heard a knock at the door just now."
       "I saw a hair in my soup at lunch."
       "I heard a cry outside last night."
@@ -215,12 +216,12 @@ module.exports = {
   PDs4: {
     introduction: "Pattern Drills 4. Ask a question on a given topic and then answer it following the example:"
     example: {
-      teacher1:"see the race - large crowd"
-      student1:"Didn't you see the race?"
-      student2:"I couldn't. The crowd was too large."
+      teacher0:"see the race - large crowd"
+      teacher1:"Didn't you see the race?"
+      teacher2:"I couldn't. The crowd was too large."
     }
 
-    teacher1:[
+    teacher:[
       "read the letter - bad writing "
       "swim in the lake - deep water"
       "see her face - poor light"
@@ -245,7 +246,7 @@ module.exports = {
 
   # Oral Composition
   OC: {
-    introduction:"Now let's try oral composition. I want you to try and tell me the story from those notes."
+    introduction:"Oral Composition. Now let's try oral composition. I want you to try and tell me the story from those notes."
     teacher: [
       "Last week  - went - theatre"
       "Did not enjoy - play"

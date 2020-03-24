@@ -29,66 +29,131 @@ S.map((each,idx) -> each.role = 'trainee')
   text:{title,paragraph}
   RD1
   RD2
-  CQs #: {CQs.teacher,CQs.student}
-  PDs #: {PDs.teacher1, PDs.teacher2, PDs.student1, PDs.student2}
-  OC  #: {OC.introduction,OC.teacher, OC.student}
+  CQs
+  AQT
+  PDs1
+  PDs2
+  PDs3
+  PDs4
+  OC
 } = lesson01
 
-
+###
 S[1].say "Let's meet some people first."
 
 T[0].intro()
 T[1].intro()
 T[2].intro()
-T[0].quiet(1)
+Speaker.quiet(1)
 S[1].intro()
 S[0].intro()
 S[2].intro()
 S[3].intro()
 S[4].intro()
 
-
-
+###
+###
 # Read for the first time
-T[0].say RD1.introduction
-T[0].say title
-T[1].say paragraph
+T[1].say RD1.introduction
+T[2].say title
+T[2].say paragraph
 
+T[1].say RD2.introduction
+T[2].say title
+T[2].say paragraph
 
 # Comprehension Questions
-T[0].say CQs.introduction
+T[1].say CQs.introduction
 for question,idx in CQs.teacher
-  T[0].say question
-  S[4].quiet(2)
+  T[2].say question
+  Speaker.quiet(3)
   S[0].say CQs.student[idx] 
 
 
+# Ask Questions on Text
+T[1].say AQT.introduction
+Speaker.quiet()
+for t1Text,idx in AQT.example.teacher1
+  T[2].say t1Text
+  T[1].say AQT.example.teacher2[idx]
 
-# Pattern Drills
-T[1].say PDs.introduction
+for t, idx in AQT.teacher
+  T[2].say t
+  S[0].say AQT.student[idx]
 
-for t,idx in PDs.teacher1
-  T[1].say t
-  T[1].quiet(2)
 
-  S[0].say PDs.student1[idx]
-  T[2].say PDs.teacher2[idx]
+###
+
+# Pattern Drills 1
+T[1].say PDs1.introduction
+T[0].say PDs1.example.teacher1
+T[2].say PDs1.example.teacher2
+T[0].say PDs1.example.teacher1
+T[2].say PDs1.example.teahcer2
+
+
+
+for t,idx in PDs1.teacher1
+  T[2].say t
+  Speaker.quiet(2)
+  S[0].say PDs1.student1[idx]
+
+  T[2].say PDs1.teacher2[idx]
+  Speaker.quiet(2)
+  S[0].say PDs1.student2[idx]
+
+# Pattern Drills 2
+T[1].say PDs2.introduction
+T[0].say PDs2.example.teacher1
+T[1].say PDs2.example.teacher2
+T[2].say PDs2.example.teacher3
+
+
+for t,idx in PDs2.teacher
+  T[2].say t
+  Speaker.quiet(2)
+  S[0].say PDs2.student1[idx]
+  Speaker.quiet(2)
+  S[1].say PDs2.student2[idx]
+
+# Pattern Drills 3
+T[1].say PDs3.introduction
+T[0].say PDs3.example.teacher1
+T[2].say PDs3.example.teacher2
+
+
+for t,idx in PDs3.teacher
+  T[2].say t
+  Speaker.quiet(2)
+  S[0].say PDs3.student[idx]
+
   
-  T[1].quiet(2)
-  S[0].say PDs.student2[idx]
+# Pattern Drills 4
+T[1].say PDs4.introduction
+T[0].say PDs4.example.teacher0
+T[1].say PDs4.example.teacher1
+T[2].say PDs4.example.teacher2
+
+
+for t,idx in PDs4.teacher
+  T[2].say t
+  Speaker.quiet(2)
+  S[0].say PDs4.student1[idx]
+  Speaker.quiet(2)
+  S[1].say PDs4.student2[idx]  
 
 
 # oral composition
 T[1].say OC.introduction
 
 for t,idx in OC.teacher
-  T[1].say t
-  T[1].quiet(2)
+  T[2].say t
+  Speaker.quiet(2)
   S[1].say OC.student[idx]
 
 
 
-T[0].say "That's all for today"
+T[2].say "That's all for today"
 
 for each in T.concat(S)
   each.say "bye bye",0.001

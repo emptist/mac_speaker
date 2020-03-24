@@ -48,7 +48,7 @@ S[0].say "Thanks."
 S[1].say "Let's meet some people first."
 
 T[0].intro()
-T[0].quiet(1)
+Speaker.quiet(1)
 S[1].intro()
 S[0].intro()
 T[1].intro()
@@ -59,16 +59,16 @@ S[4].intro()
 
 
 T[1].say "Hello everyone,  #{T[0].voice} and I will help you to learn New Concept English through practice."
-T[1].quiet()
-
+Speaker.quiet()
+# --------------------------- Part 1: Audio- lingual presentation of the text  -------------------------
 T[2].say "Part 1: Audio- lingual presentation of the text"
-T[2].quiet()
+Speaker.quiet()
 
 T[1].say "Now I'm going to read you a story about a visit to the theatre. It's called #{title}. Keep your books shut and listen please. "
 
 T[1].say title
 
-T[1].quiet(0.5)
+Speaker.quiet(0.5)
 
 T[1].say paragraph
 
@@ -77,12 +77,12 @@ T[1].say "Now turn to Lesson 1 please. We'll go through it carefully and make su
 S[0].say "A talk"
 
 T[1].say "Yes, that's right. It's a talk. But what about a private conversation, what kind of talk is that?"
-T[1].quiet()
+Speaker.quiet()
 
 S[2].say "It's a a talk between you and me."
 
 T[1].say "Good. It's not his business or her business. It's our business. It's private."
-T[1].quiet()
+Speaker.quiet()
 
 T[1].say "'Last week I went to the theatre.' Went, of course, is the past of the verb ...?"
 
@@ -109,13 +109,13 @@ S.map (each,idx) ->
 
 # --------------------------- T ask S questions -------------------------
 T[2].say "Part 2: Comprehension questions"
-T[2].quiet()
+Speaker.quiet()
 
 T[1].say "Now I'm going to read the story again. Then, we're going to ask you questions. Books shut and listen carefully. "
-T[1].quiet()
+Speaker.quiet()
 
 T[1].say title
-T[1].quiet(0.5)
+Speaker.quiet(0.5)
 
 T[1].say paragraph
 
@@ -141,12 +141,13 @@ T[1].say "Please listen again. So you enjoyed it, did you?"
 
 S[4].say "No, I didn't. "
 
-T[1].say "Excellent! You are all doing very well! 
-T[1].quiet()
+T[1].say "Excellent! You are all doing very well! "
+Speaker.quiet()
+
 # ------------  train the S on asking questions --------------------
 
 T[2].say "Part 3: Asking questions on the text"
-T[2].quiet()
+Speaker.quiet()
 
 T[1].say "Now I want you to ask me some questions. Here is the rule. I'm going to say 'Ask me if I went to the theatre' and you will ask, 'Did you go to the theatre?'. Then I will say 'Yes, I did. When...' and you will ask,'when did you go to the theatre?'"
 
@@ -171,30 +172,30 @@ T[1].say "Yes, I did ... What... ?"
 S[4].say "What did you see?"
 
 T[1].say "I saw an interesting play. Very good!"
-T[1].quiet()
+Speaker.quiet()
 
 # ------------  train the S on pattern dills --------------------
 T[2].say "Part 4: pattern drills"
-T[2].quiet()
+Speaker.quiet()
 
 T[0].say "Now we're going to practice making simple sentences. We'll practice in pairs. One of you asks a question or make a statement and the other answers. I shall give you cues, like this : #{S[0].voice}, 'walk across the stage.' Then #{S[0].voice} ask: 'How did she walk across the stage?'"
 
 T[0].say "Then I shall give another cue: #{S[1].voice}, 'slow', and #{S[1].voice} say, 'She walked very slowly across the stage'. All right?"
 
 T[0].say "#{S[0].voice}, walk across the stage"
-T[0].quiet()
-T[0].quiet()
+Speaker.quiet()
+Speaker.quiet()
 
 S[0].say "How did she walk across the stage?"
 
 T[0].say "#{S[1].voice}, slow. "
-T[0].quiet()
-T[0].quiet()
+Speaker.quiet()
+Speaker.quiet()
 
 S[1].say "She walked very slowly across the stage."
 
 T[0].say "Good. #{S[2].voice} and #{S[3].voice}, it's your turn. #{S[2].voice}, behave at the theatre. "
-T[0].quiet()
+Speaker.quiet()
 
 S[2].say "How did she behave at the theatre? "
 
@@ -203,27 +204,27 @@ T[0].say "#{S[3].voice}, rude ."
 S[3].say "She behaved very rudely at the theatre."
 
 T[0].say "Good. "
-T[0].quiet()
+Speaker.quiet()
 
 # ------------  train the S on oral composition --------------------
 T[2].say "Part 5: oral composition"
-T[2].quiet()
+Speaker.quiet()
 
 T[0].say "Congratulations! Here is the last part. Now look at the blackboard please. I want you to try and tell me the story from those notes. Would you begin please, #{S[4].voice}? You should reconstruct points 1 and 2. "
 
 T[0].say "points 1, #{OC.teacher[0]}"
 T[0].say "points 2, #{OC.teacher[1]}"
-T[0].quiet()
+Speaker.quiet()
 
 S[4].say "Last week I went to the theatre. I did not enjoy the play."
 
 T[0].say "Good, now continue points 3 and 4, #{S[2].voice} please."
-T[0].quiet()
-T[0].quiet()
+Speaker.quiet()
+Speaker.quiet()
 T[0].say "points 3, #{OC.teacher[2]}"
-T[0].quiet()
+Speaker.quiet()
 T[0].say "points 4, #{OC.teacher[3]}"
-T[0].quiet()
+Speaker.quiet()
 S[2].say "A young man and a young woman were sitting behind me. They were talking loudly."
 
 

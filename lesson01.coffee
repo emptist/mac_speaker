@@ -10,9 +10,19 @@ module.exports = {
     introduction:"Now I'm going to read you a story about a visit to the theatre. It's called 'A Private Conversation'. Keep your books shut and listen please."
   }
 
+  # Intensive Reading
+  IR: {
+    teacher:[
+
+    ]
+    student:[
+      
+    ]
+  }
+
   # Read for the 2nd time
   RD2: {
-    introduction:"Now I'm going to read the story again. Then, we're going to ask you questions. Books shut and listen carefully."
+    introduction:"Now I'm going to read the story again. Then, we're going to do some exercised. Keep the book shut. Listen carefully."
   }
 
   # Comprehension Questions

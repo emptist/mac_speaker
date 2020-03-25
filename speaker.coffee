@@ -55,7 +55,8 @@ class SpeakerBase
         Math.max(minDelay, string.split(' ').length*@delay)
       
       endMs = @constructor.wait(moreMs,true)
-      @cc({indx,start:ms,end:endMs,who:@voice,string})
+      type = 'none'
+      @cc({indx,start:ms,end:endMs,who:@voice,string,type})
 
 
 
@@ -65,6 +66,9 @@ class SpeakerBase
   cc: ({indx,start,end,who,string,type='srt'}) ->
     seperator = ''
     switch type
+      when 'none'
+        console.log("#{indx} #{who}: #{string}")
+        return
       # SupRip, .srt
       when 'srt'
         seperator = ' --> '
